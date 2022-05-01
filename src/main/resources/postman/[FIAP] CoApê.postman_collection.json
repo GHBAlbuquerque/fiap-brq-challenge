@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "65b26cf2-8402-4e86-a6c2-8d0687dd0f78",
+		"name": "[FIAP] CoApê",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/propriedades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/propriedades",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"propriedades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/contratos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/contratos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contratos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/contratos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"dt_assinatura\": \"2016-08-26\",\r\n        \"dt_fim\": \"2017-08-26\",\r\n        \"valor_aluguel\":\"1000\",\r\n        \"valor_taxa\":\"5\",\r\n        \"termos\":\"proibido ter animais\",\r\n        \"vigente\":true,\r\n        \"propriedade\": {\r\n            \"id\": 1\r\n        },\r\n        \"proprietario\": {\r\n            \"id\": 1\r\n        },\r\n        \"inquilino\":{\r\n            \"id\": 1\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/contratos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contratos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/visitas/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/visitas/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visitas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/visitas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data_visita\": \"2020-08-27\",\r\n    \"data_agendamento\": \"2020-08-26\",\r\n    \"propriedade\": {\r\n        \"id\": 1\r\n    },\r\n    \"proprietario\": {\r\n        \"id\": 1\r\n    },\r\n    \"inquilino\": {\r\n        \"id\": 1\r\n    },\r\n    \"ativa\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/visitas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visitas"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
