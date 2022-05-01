@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "e1371673-1254-40c9-ab59-0f95ccae5ae5",
+		"name": "[FIAP] BRQ Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"nome\": \"Gabriela Souza\",\r\n    \"cpf\": \"64708299028\",\r\n    \"email\": \"teste5@email.com\",\r\n    \"celular\": \"11967564587\",\r\n    \"genero\": \"FEMININO\",\r\n    \"dt_nasc\": \"1997-11-12\",\r\n    \"skills\": [\r\n        {\r\n            \"id\": 1\r\n        }\r\n    ],\r\n    \"certificacoes\": [\r\n        {\r\n            \"id\": null,\r\n            \"nome\": \"Certificação 1\",\r\n            \"descricao\": \"Descrição 1\",\r\n            \"emissor\": \"Emissor 1\",\r\n            \"dataEmissao\": \"2016-09-15\",\r\n            \"candidato\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/candidatos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"candidatos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/candidatos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"candidatos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar - cpf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/candidatos/cpf/80270133054",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"candidatos",
+						"cpf",
+						"80270133054"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar - celular",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/candidatos/celular/923478763",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"candidatos",
+						"celular",
+						"923478763"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar - nome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/candidatos/nome/Julio Nakamura",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"candidatos",
+						"nome",
+						"Julio Nakamura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar - skill",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/candidatos/skills/Java - Avançado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"candidatos",
+						"skills",
+						"Java - Avançado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar - certificacoes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/candidatos/certificacoes/Time Use Fundamentals - Manager",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"candidatos",
+						"certificacoes",
+						"Time Use Fundamentals - Manager"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
