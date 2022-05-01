@@ -95,9 +95,12 @@ public class CandidatoController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<Void> cadastrar(@RequestBody Candidato candidato) {
-        candidatoService.cadastrar(candidato);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<?> cadastrar(@RequestBody Candidato candidato) {
+        try {
+            var candidatoSalvo = candidatoService.cadastrar(candidato);
+            return ResponseEntity.created(null).body(candidatoSalvo);
+        } catch (Exception ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
     }
 }

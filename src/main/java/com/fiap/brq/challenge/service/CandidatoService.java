@@ -13,10 +13,28 @@ public class CandidatoService {
     @Autowired
     private CandidatoRepository repository;
 
+    @Autowired
+    private SkillService skillService;
+
+    @Autowired
+    private CertificacaoService certificacaoService;
+
     @Transactional
     public Candidato cadastrar(Candidato candidato) {
         validar(candidato);
-        return repository.save(candidato);
+
+        var skillsEncontradas = skillService.encontrarSkills(candidato.getSkills());
+        candidato.setSkills(skillsEncontradas);
+
+        var candidatoSalvo = repository.save(candidato);
+
+        candidatoSalvo.getCertificacoes().stream().forEach(certificacao -> certificacao.setCandidato(candidatoSalvo));
+
+        for (var certificacao : candidato.getCertificacoes()) {
+            certificacaoService.salvar(certificacao);
+        }
+
+        return repository.findById(candidatoSalvo.getId()).get();
     }
 
     private void validar(Candidato candidato) {
@@ -29,9 +47,10 @@ public class CandidatoService {
             throw new RuntimeException("Já existe candidato cadastrado para este cpf");
         }
 
-        if (repository.findByCelular(candidato.getCpf()).isPresent()) {
+        if (repository.findByCelular(candidato.getCelular()).isPresent()) {
             throw new RuntimeException("Já existe candidato cadastrado para este número de celular");
         }
-
     }
+
+
 }
